@@ -16,7 +16,8 @@ Vous trouverez ici le support de cours, les exercices de la session et les resso
 | Données pour l’exercice d’analyse immobilière | [selogerdata.csv](selogerdata.csv) |
 | Skill : passer d’un besoin aux spécifications | [SKILL.md](SKILL.md) |
 | Workflow n8n : évaluer la qualité d’une user story | [US_Quality_IAA.json](US_Quality_IAA.json) |
-| TP RAG : interroger des documents PDF | [Ouvrir dans Colab](https://colab.research.google.com/github/RMoulla/IAA_Montelimar/blob/main/RAG_Gradio.ipynb) |
+| TP RAG : comprendre chaque étape | [Lire le notebook](TP_RAG_Github.ipynb) · [Ouvrir dans Colab](https://colab.research.google.com/github/RMoulla/IAA_Montelimar/blob/main/TP_RAG_Github.ipynb) |
+| TP RAG avec interface Gradio : interroger des documents PDF | [Ouvrir dans Colab](https://colab.research.google.com/github/RMoulla/IAA_Montelimar/blob/main/RAG_Gradio.ipynb) |
 | TP Agents : assistant e-commerce avec MCP | [Ouvrir dans Colab](https://colab.research.google.com/github/RMoulla/IAA_Montelimar/blob/main/Copie_de_TP_Agent_LLM.ipynb) |
 | Catalogue utilisé par le TP Agents | [products.csv](products.csv) |
 
@@ -66,7 +67,22 @@ Un *notebook* (`.ipynb`) alterne explications et cellules de code. **GitHub perm
 
 Les deux TP utilisent `gpt-4o` via l’API OpenAI. Il faut une clé valide, l’accès au modèle et un quota disponible ; les appels API peuvent être facturés. Un abonnement ChatGPT ne fournit pas à lui seul cet accès API. Vous pouvez gérer votre clé sur la [page des clés API](https://platform.openai.com/api-keys). Gardez-la dans les secrets Colab, sans l’inscrire dans une cellule ou dans GitHub.
 
-## 4. Faire tourner le TP RAG
+## 4. Faire tourner les TP RAG
+
+### RAG étape par étape : `TP_RAG_Github.ipynb`
+
+[**Ouvrir le TP RAG étape par étape dans Colab**](https://colab.research.google.com/github/RMoulla/IAA_Montelimar/blob/main/TP_RAG_Github.ipynb)
+
+Ce TP présente successivement l’extraction du texte d’un PDF, sa segmentation, le calcul des embeddings, la recherche des passages similaires et la génération d’une réponse avec `gpt-4o`.
+
+1. Téléchargez le [support de Montélimar](IAA_GCATRANS_Montelimar.pdf), puis importez-le dans les fichiers de votre session Colab en conservant son nom.
+2. Configurez le secret `OPENAI_API_KEY` comme indiqué à la section 3.
+3. Exécutez toutes les cellules dans l’ordre : extraction, embeddings et recherche, puis génération de la réponse.
+4. Modifiez la variable `query` pour poser une autre question, puis relancez les cellules de recherche et de génération.
+
+Utilisez une session Colab dédiée à ce notebook : il conserve la version `openai==0.28` du TP d’origine. Les étapes d’extraction et de recherche fonctionnent sans clé OpenAI ; la dernière étape l’utilise pour générer la réponse.
+
+### RAG avec interface Gradio
 
 [**Ouvrir le TP RAG dans Colab**](https://colab.research.google.com/github/RMoulla/IAA_Montelimar/blob/main/RAG_Gradio.ipynb)
 
